@@ -1,28 +1,24 @@
-# Virtual environment
+# Python
 venv/
-ENV/
-.env/
-
-# Python cache
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
 *.pkl
 
-# Data & Models
-data/
-models/
-*.h5
-*.pkl
-*.joblib
+# Node.js / React
+node_modules/
+dist/
+build/
 
-# Logs
+# Environment & config
+.env
 *.log
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+# Data files (optional, agar large hai to ignore kar)
+*.csv
+*.xlsx
+*.tsv
+*.json
 
-# OS files
+# System files
 .DS_Store
 Thumbs.db

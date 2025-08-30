@@ -1,0 +1,101 @@
+FraudGuardian AI — Demo Instructions (Judge-Friendly)
+=====================================================
+
+This guide will help you run the FraudGuardian AI demo smoothly.  
+You can either run the **Full Demo** (live training + inference) or use the **Mock Demo** (pre-generated predictions).  
+
+---
+
+PREREQUISITES
+-------------
+- Python 3.8+ installed  
+- Git installed  
+- Basic terminal/command line knowledge  
+
+Works on: **Windows, macOS, Linux**
+
+---
+
+SETUP
+-----
+# 1. Clone the project
+git clone https://github.com/yourusername/fraudguardian-ai.git
+cd fraudguardian-ai
+
+# 2. Create virtual environment
+python -m venv venv
+# Activate it:
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+---
+
+FULL DEMO (with ML training + inference)
+----------------------------------------
+# 1. Run quick training (small dataset for demo)
+python src/scripts/train_model.py --fast
+
+# 2. Start the backend API
+uvicorn src.api.main:app --reload --port 8000
+
+# 3. Open a new terminal, activate venv again, then start dashboard
+streamlit run src/frontend/Dashboard.py
+
+# 4. Open in browser:
+- Streamlit Dashboard: http://localhost:8501
+- API Documentation: http://localhost:8000/docs
+- Health Check: http://localhost:8000/health
+
+---
+
+MOCK DEMO (fallback if ML services fail)
+----------------------------------------
+# 1. Generate mock predictions
+python src/scripts/generate_mock_predictions.py
+
+# 2. Start only the Streamlit dashboard
+streamlit run src/frontend/Dashboard.py
+
+# The dashboard will now show results from "data/demo_predictions.csv"
+
+---
+
+DEMO FLOW
+---------
+1. Show the Streamlit Dashboard (http://localhost:8501)  
+   - Upload a CSV of transactions OR load the demo file  
+   - Display fraud probability, risk levels, anomaly scores  
+
+2. Show the API Documentation (http://localhost:8000/docs)  
+   - Run the `/predict` endpoint with sample JSON  
+   - Show real-time prediction  
+
+3. (Optional) Show quick training script  
+   - Run: python src/scripts/train_model.py --fast  
+
+---
+
+TROUBLESHOOTING
+---------------
+❌ API not starting?  
+- Ensure virtual environment is activated  
+- Try: pip install -r requirements.txt again  
+
+❌ Streamlit not opening?  
+- Make sure port 8501 is free  
+- Kill any process using that port and retry  
+
+❌ Training too slow?  
+- Use: python src/scripts/train_model.py --fast  
+
+❌ Still failing?  
+- Use the MOCK DEMO instead (always works)
+
+---
+
+END OF DEMO 🚀

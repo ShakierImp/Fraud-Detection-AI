@@ -1,0 +1,107 @@
+File: docs/presentation_screenshots_list.txt
+
+------------------------------------------------------------
+FraudGuardian AI - Presentation Screenshot Checklist
+------------------------------------------------------------
+
+Category: Architecture / System Overview
+------------------------------------------------------------
+1. Filename: architecture_overview.png
+   Shows: Full architecture diagram (API, ML models, dashboard, data pipeline)
+   Size: Full screen
+   Purpose: Slide 5 (Technical Methodology)
+
+2. Filename: docker_compose_services.png
+   Shows: Docker Compose running both API and Streamlit services
+   Size: Cropped to terminal section
+   Purpose: Slide 4 (Technology Stack)
+
+------------------------------------------------------------
+Category: Streamlit Dashboard
+------------------------------------------------------------
+3. Filename: dashboard_home.png
+   Shows: Initial landing page of Streamlit dashboard
+   Size: Full screen
+   Purpose: Slide 7 (Demo Plan)
+
+4. Filename: dashboard_file_upload.png
+   Shows: CSV file upload widget with sample file selected
+   Size: Cropped to component
+   Purpose: Slide 7 (Demo Plan)
+
+5. Filename: dashboard_results_table.png
+   Shows: Fraud detection results table with risk scores
+   Size: Full screen
+   Purpose: Slide 6 (Key Features & Innovation)
+
+6. Filename: dashboard_risk_distribution_chart.png
+   Shows: Histogram/graph of fraud risk score distribution
+   Size: Cropped to visualization
+   Purpose: Slide 7 (Demo Plan)
+
+7. Filename: dashboard_download_button.png
+   Shows: Download report button visible after scoring
+   Size: Cropped to button + context
+   Purpose: Slide 7 (Demo Plan)
+
+------------------------------------------------------------
+Category: API Documentation / Endpoints
+------------------------------------------------------------
+8. Filename: api_docs_swagger.png
+   Shows: FastAPI Swagger UI with endpoints listed
+   Size: Full screen
+   Purpose: Slide 4 (Technology Stack)
+
+9. Filename: api_test_request.png
+   Shows: Example POST request/response for fraud detection endpoint
+   Size: Cropped to request + response JSON
+   Purpose: Slide 3 (Our Solution)
+
+------------------------------------------------------------
+Category: Code Snippets (Key Algorithms)
+------------------------------------------------------------
+10. Filename: code_feature_engineering.png
+    Shows: Python function for feature engineering (time, geo, log-transform)
+    Size: Cropped code block
+    Purpose: Slide 5 (Technical Methodology)
+
+11. Filename: code_ensemble_model.png
+    Shows: Ensemble model training/scoring logic
+    Size: Cropped code block
+    Purpose: Slide 5 (Technical Methodology)
+
+12. Filename: code_autoencoder.png
+    Shows: Autoencoder model definition
+    Size: Cropped code block
+    Purpose: Slide 5 (Technical Methodology)
+
+------------------------------------------------------------
+Category: Results / Visualizations
+------------------------------------------------------------
+13. Filename: confusion_matrix.png
+    Shows: Confusion matrix from model evaluation
+    Size: Cropped visualization
+    Purpose: Slide 6 (Key Features & Innovation)
+
+14. Filename: feature_importance_chart.png
+    Shows: Bar chart of most important features
+    Size: Cropped visualization
+    Purpose: Slide 6 (Key Features & Innovation)
+
+------------------------------------------------------------
+Category: Team / Project Info
+------------------------------------------------------------
+15. Filename: team_slide_mock.png
+    Shows: Team members, roles, and acknowledgments
+    Size: Full screen
+    Purpose: Slide 9 (Team & Acknowledgments)
+
+16. Filename: hackathon_logo.png
+    Shows: Hackathon logo or banner
+    Size: Cropped image
+    Purpose: Slide 1 (Title Slide)
+
+------------------------------------------------------------
+Total: 16 screenshots
+------------------------------------------------------------
+Quick Test: All screenshots can be captured in <5 minutes during demo prep by navigating dashboard, API docs, and code repo.

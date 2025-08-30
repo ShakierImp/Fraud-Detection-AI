@@ -1,0 +1,69 @@
+/* App-specific visual styles */
+.panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 8px 30px rgba(26,54,93,0.06);
+}
+
+.panel-header { margin-bottom: 8px; }
+
+.metrics-row {
+  display:flex;
+  gap:10px;
+  margin-top: 8px;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(26,54,93,0.08);
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: white;
+  box-shadow: 0 8px 22px rgba(26,54,93,0.12);
+}
+
+.btn.primary:hover { transform: translateY(-2px); }
+.btn.ghost:hover { transform: translateY(-2px); }
+
+/* Loading spinner inside button */
+.btn.primary.loading {
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: rgba(255,255,255,0.95);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* error */
+.error {
+  margin-top: 12px;
+  color: var(--danger);
+  background: rgba(229,62,62,0.06);
+  padding: 10px;
+  border-radius: 8px;
+}

@@ -1,0 +1,120 @@
+File: docs/presentation_pptx_content.txt
+
+------------------------------------------------------------
+Slide 1: Title Slide
+------------------------------------------------------------
+Title: FraudGuardian AI: Real-Time Transaction Monitoring
+Subtitle: Machine Learning-Powered Fraud Detection System
+Team Members: [Name 1 – ML Engineer], [Name 2 – Backend Developer], [Name 3 – Data Scientist], [Name 4 – UI/UX & Dashboard]
+Hackathon: [Hackathon Name/Logo Placeholder]
+
+Speaker Notes:
+Start with a strong hook: "Financial fraud costs businesses and consumers over $XX billion annually. We built FraudGuardian AI to fight back in real time."
+
+------------------------------------------------------------
+Slide 2: The Problem
+------------------------------------------------------------
+- Rising transaction fraud with billions lost yearly
+- False positives hurt customer trust and experience
+- Fraudsters constantly adapt with new patterns
+- Traditional systems are slow, rigid, and reactive
+
+Speaker Notes:
+Emphasize the dual pain points: heavy financial losses and customer friction due to false alarms. Current solutions can’t keep up with evolving fraud tactics.
+
+------------------------------------------------------------
+Slide 3: Our Solution
+------------------------------------------------------------
+- Real-time fraud detection API
+- Ensemble machine learning approach
+- Explainable and interpretable risk scores
+- Easy integration into existing systems
+
+Speaker Notes:
+Position FraudGuardian as both powerful and practical. Stress our hybrid ML approach and focus on explainability, not just predictions.
+
+------------------------------------------------------------
+Slide 4: Technology Stack
+------------------------------------------------------------
+- Backend: Python, FastAPI, Uvicorn
+- Machine Learning: Scikit-learn, XGBoost, TensorFlow, Optuna
+- Frontend: Streamlit, optional React integration
+- Deployment: Docker & Docker Compose
+
+Speaker Notes:
+Each choice balances speed, reliability, and a strong ML ecosystem. Highlight how FastAPI ensures low latency and Streamlit provides rapid visualization.
+
+------------------------------------------------------------
+Slide 5: Technical Methodology
+------------------------------------------------------------
+- Data pipeline: ingestion, preprocessing, feature engineering
+- Feature extraction: time, geography, transaction metadata
+- Supervised models: detect known fraud signatures
+- Unsupervised autoencoders: catch unseen anomalies
+- Ensemble scoring for robust predictions
+
+Speaker Notes:
+Stress the dual-model approach—supervised models handle history, unsupervised catch the unknown. This combination is key to fighting adaptive fraud.
+
+------------------------------------------------------------
+Slide 6: Key Features & Innovation
+------------------------------------------------------------
+- Real-time predictions under 100ms
+- Transparent risk scores for explainability
+- Customizable thresholds per business needs
+- Interactive dashboard with live analytics
+- Extensible architecture for future models
+
+Speaker Notes:
+This is where we stand out—fast, explainable, and user-friendly. Fraud detection that builds trust, not black boxes.
+
+------------------------------------------------------------
+Slide 7: Demo Plan
+------------------------------------------------------------
+Live demo flow:
+1. Upload a CSV of transactions
+2. Real-time fraud risk scoring
+3. Dashboard visualization of risk distribution
+4. Downloadable fraud detection report
+
+Speaker Notes:
+Walk the judges through exactly what they’ll see—make the demo relatable, fast, and impressive.
+
+------------------------------------------------------------
+Slide 8: Impact & Future Roadmap
+------------------------------------------------------------
+- Businesses save millions by reducing fraud losses
+- Scales to high-throughput environments
+- Future features:
+  - Real-time streaming pipeline (Kafka/Flink)
+  - Broader ML model integration
+  - Integration with bank & fintech APIs
+
+Speaker Notes:
+Close the loop by showing both short-term business value and a visionary roadmap—this could grow into a production-grade fintech solution.
+
+------------------------------------------------------------
+Slide 9: Team & Acknowledgments
+------------------------------------------------------------
+Team Members:
+- [Name 1] – Machine Learning Engineer
+- [Name 2] – Backend/API Developer
+- [Name 3] – Data Scientist
+- [Name 4] – UI/UX & Dashboard Developer
+
+Acknowledgments:
+- Hackathon mentors
+- Open source libraries (FastAPI, Scikit-learn, Streamlit)
+- Public fraud datasets used for prototyping
+
+Speaker Notes:
+Keep it short and show the diversity of roles. Acknowledge mentors and open-source contributions.
+
+------------------------------------------------------------
+Slide 10: Q&A
+------------------------------------------------------------
+Title: Questions?
+Subtitle: Contact us: [team email or LinkedIn]
+
+Speaker Notes:
+End with confidence. Invite technical and business questions, showing that you’ve thought through both angles.

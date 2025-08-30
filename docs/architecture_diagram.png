@@ -1,0 +1,29 @@
+# System Architecture Diagram
+
+This document provides instructions and a placeholder visualization of the **FraudGuardian AI** system architecture.
+
+---
+
+## How to Generate the Diagram
+
+1. Go to [draw.io](https://app.diagrams.net).
+2. Create a new diagram and add the following components:
+   - **Data Flow Boxes:**  
+     - CSV Input  
+     - Data Preprocessing  
+     - Feature Engineering  
+     - Model Training  
+     - Model Inference  
+   - **Services:**  
+     - FastAPI Service (Port 8000)  
+     - Streamlit Dashboard (Port 8501)  
+   - **Arrows:** Connect the boxes to show data flow in the order listed.
+3. Export the diagram as **PNG** or **SVG**.
+4. Save the exported file to `docs/architecture_diagram.png`.
+
+---
+
+## ASCII Art Placeholder
+
+Below is a simple placeholder diagram until the final PNG is generated:
+

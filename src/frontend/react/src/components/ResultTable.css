@@ -1,0 +1,68 @@
+.results-panel {
+  background: var(--card);
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(26,54,93,0.06);
+}
+
+.results-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.results-header h2 { margin: 0; }
+.results-header .muted { color:var(--muted); margin:0; }
+
+.table-wrap {
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+
+.results-table thead th {
+  text-align:left;
+  font-size:13px;
+  color:var(--muted);
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(26,54,93,0.06);
+}
+
+.results-table tbody td {
+  padding: 12px;
+  font-size:14px;
+  color: var(--primary);
+}
+
+.results-table tbody tr.even { background: rgba(11,23,44,0.02); }
+.results-table tbody tr.odd { background: transparent; }
+
+/* Badges */
+.badge {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius: 999px;
+  font-weight:700;
+  font-size:13px;
+  color:white;
+  letter-spacing:0.2px;
+}
+
+.badge.high { background: var(--danger); }
+.badge.medium { background: var(--warning); }
+.badge.low { background: var(--success); }
+
+/* Empty state */
+.empty {
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+}

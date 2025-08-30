@@ -1,0 +1,78 @@
+==================================================
+ FRAUDGUARDIAN AI – FINAL DELIVERABLE CHECKLIST
+==================================================
+
+This checklist ensures all project components are ready for submission and demo.
+Use the [ ] checkboxes to mark completion.
+
+--------------------------------------------------
+1. SUBMISSION PACKAGE CONTENTS
+--------------------------------------------------
+[ ] /src/                   (Source code: backend, frontend, ML models)
+[ ] /docs/                  (Documentation: README, UX tips, credits, checklist)
+[ ] /notebooks/             (Jupyter notebooks for EDA, experiments)
+[ ] /data/                  (Sample/synthetic datasets, no private data)
+[ ] LICENSE                 (MIT License file)
+[ ] README.md               (Polished overview and setup instructions)
+[ ] presentation.pdf/.pptx  (Final hackathon slide deck)
+[ ] demo_assets/            (Screenshots, sample CSVs, video recording if allowed)
+
+Estimated Time: 20–30 mins (review + packaging)
+
+--------------------------------------------------
+2. PRE-DEMO TESTING STEPS
+--------------------------------------------------
+[ ] Environment Setup Test  
+    → Fresh `conda`/`venv` setup, run `pip install -r requirements.txt` without errors  
+    Time: 10 mins  
+
+[ ] Training Pipeline Test  
+    → Run end-to-end data preprocessing + training with sample dataset  
+    Time: 20 mins  
+
+[ ] API Functionality Test  
+    → Start backend (`uvicorn app.main:app`)  
+    → Test endpoints: `/predict`, `/health` return correct responses  
+    Time: 15 mins  
+
+[ ] Dashboard Functionality Test  
+    → Run Streamlit: `streamlit run app.py`  
+    → Verify file upload, risk visualization, flagged transaction table  
+    Time: 20 mins  
+
+[ ] Mock Mode Fallback Test  
+    → Run with no dataset → system loads demo/synthetic data gracefully  
+    Time: 10 mins  
+
+--------------------------------------------------
+3. PRESENTATION READY
+--------------------------------------------------
+[ ] Slide Deck Finalized (problem, solution, demo flow, impact, future work)  
+[ ] Screenshots Captured (UI, flagged transactions, charts)  
+[ ] Demo Script Prepared (who speaks, when to click, timing 3–5 mins)  
+[ ] Q&A Preparation (2–3 likely technical questions + answers)  
+
+Estimated Time: 30–40 mins
+
+--------------------------------------------------
+4. REPOSITORY READINESS
+--------------------------------------------------
+[ ] README.md polished (setup, usage, contribution guide)  
+[ ] LICENSE file included (MIT)  
+[ ] .gitignore configured (ignore /data/raw, *.env, __pycache__)  
+[ ] No sensitive data (API keys, credentials) committed  
+[ ] Repo public/private per hackathon rules  
+
+Estimated Time: 15–20 mins
+
+--------------------------------------------------
+5. EXTRA TIPS
+--------------------------------------------------
+✅ Do one full **dry run** on a teammate’s laptop (clean install).  
+✅ Have a **backup demo plan**: screenshots + pre-recorded video.  
+✅ Time your demo to **under 5 minutes**.  
+✅ Push final code before deadline (allow buffer).  
+
+==================================================
+ TOTAL TIME ESTIMATE (full run): ~2.5–3 hours
+==================================================

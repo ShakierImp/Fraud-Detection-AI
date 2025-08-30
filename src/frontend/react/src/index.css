@@ -1,0 +1,76 @@
+/* Global styles and typographic system */
+:root{
+  --bg: #f7fafc;
+  --primary: #1a365d;
+  --accent: #2b6cb0;
+  --success: #38a169;
+  --danger: #e53e3e;
+  --warning: #dd6b20;
+  --muted: #718096;
+  --card: #ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --font-sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* utility */
+.container {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 24px;
+}
+
+/* subtle base components */
+.header {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom: 20px;
+}
+
+.brand-logo {
+  width:64px;
+  height:64px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: white;
+  font-weight:700;
+  font-size:20px;
+  box-shadow: 0 6px 20px rgba(26,54,93,0.12);
+}
+
+.header h1 {
+  margin:0;
+  font-size:22px;
+  letter-spacing: -0.2px;
+}
+
+.header p { margin:0; color:var(--muted); font-size:14px; }
+
+/* layout */
+.top-row {
+  display:grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  align-items:start;
+}
+
+/* small screen */
+@media (max-width: 860px){
+  .container { padding: 16px; }
+  .top-row { grid-template-columns: 1fr; }
+}

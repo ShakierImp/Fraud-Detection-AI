@@ -34,7 +34,15 @@ if not logger.handlers:
 def extract_time_features(df, ts_col='timestamp'):
     """Extract time-based features from timestamp column"""
     df = df.copy()
-    df[ts_col] = pd.to_datetime(df[ts_col])
+    if ts_col in df.columns:
+        df[ts_col] = pd.to_datetime(df[ts_col], errors='coerce')
+    else:
+        # Create dummy time features if timestamp is missing
+        df['txn_hour'] = 12
+        df['txn_day'] = 15
+        df['txn_weekday'] = 1
+        return df
+        
     df['txn_hour'] = df[ts_col].dt.hour
     df['txn_day'] = df[ts_col].dt.day
     df['txn_weekday'] = df[ts_col].dt.weekday
@@ -44,21 +52,33 @@ def extract_time_features(df, ts_col='timestamp'):
 def add_log_amount(df, col='amount'):
     """Add logarithmic transformation of amount"""
     df = df.copy()
-    df['txn_amount_log'] = np.log1p(df[col])
+    if col in df.columns:
+        df['txn_amount_log'] = np.log1p(df[col])
+    else:
+        df['txn_amount_log'] = 0
     return df
 
 
 def add_geo_mismatch(df):
     """Add flag for geographical mismatch"""
     df = df.copy()
-    df['geo_mismatch_flag'] = (df['sender_country'] != df['receiver_country']).astype(int)
+    if 'sender_country' in df.columns and 'receiver_country' in df.columns:
+        df['geo_mismatch_flag'] = (df['sender_country'] != df['receiver_country']).astype(int)
+    else:
+        df['geo_mismatch_flag'] = 0
     return df
 
-def get_features(df):
+def get_features(df, feature_list=None):
     """
     Main function to get all engineered features
+    Args:
+        df: Input DataFrame
+        feature_list: Optional list of expected features
     Returns: (X_features, feature_list)
     """
+    if df.empty:
+        return pd.DataFrame(), []
+    
     # Apply all feature engineering steps
     df_engineered = extract_time_features(df)
     df_engineered = add_log_amount(df_engineered)
@@ -66,9 +86,12 @@ def get_features(df):
     
     # Select only the numerical features for modeling
     feature_columns = ['txn_hour', 'txn_day', 'txn_weekday', 'txn_amount_log', 'geo_mismatch_flag']
-    X_features = df_engineered[feature_columns].copy()
     
-    return X_features, feature_columns
+    # Only select columns that exist
+    available_columns = [col for col in feature_columns if col in df_engineered.columns]
+    X_features = df_engineered[available_columns].copy()
+    
+    return X_features, available_columns
 
 # ---------------------------------------------------------------------------
 # ADVANCED FEATURES

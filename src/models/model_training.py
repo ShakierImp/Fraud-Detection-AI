@@ -33,6 +33,16 @@ def train_random_forest(X_train, y_train, X_val, y_val, params=None):
             - metrics_dict (dict): Dictionary of validation metrics:
                 {"precision": float, "recall": float, "f1": float, "roc_auc": float}
     """
+    # Handle case where X_train and X_val might be numpy arrays
+    if hasattr(X_train, 'values'):
+        X_train = X_train.values
+    if hasattr(X_val, 'values'):
+        X_val = X_val.values
+    if hasattr(y_train, 'values'):
+        y_train = y_train.values
+    if hasattr(y_val, 'values'):
+        y_val = y_val.values
+    
     if params is None:
         params = {
             "n_estimators": 100,

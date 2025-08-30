@@ -1,0 +1,33 @@
+# Ensemble Strategy for Fraud Detection System
+
+## 1. Introduction & Rationale
+
+Fraud detection is a high-stakes problem where adversaries constantly evolve their techniques. Relying on a **single detection method** (purely supervised or purely unsupervised) creates blind spots:
+
+- **Supervised models** (e.g., RandomForest, XGBoost) excel at identifying fraud patterns that have been observed in historical data. They provide high accuracy on known fraud types but may fail on **novel or unseen attacks**.
+- **Unsupervised anomaly detectors** (e.g., Autoencoders, IsolationForest) are designed to detect unusual behaviors that deviate from normal patterns. They are less dependent on labeled data but may produce false positives.
+
+By **combining both approaches** in an ensemble, we benefit from:
+- The **precision** of supervised models for known fraud
+- The **generalization power** of anomaly detectors for unknown fraud  
+This strategy provides a **layered defense** that increases robustness and adaptability.
+
+---
+
+## 2. Scoring Rules
+
+We define two sources of fraud risk evidence:
+
+- **Supervised Model Score** (`S_supervised`):  
+  Normalized probability output from classifiers such as RandomForest/XGBoost.  
+  Range: `[0, 1]`
+
+- **Anomaly Score** (`S_anomaly`):  
+  Normalized reconstruction error (Autoencoder) or anomaly score (IsolationForest).  
+  Higher values indicate more anomalous behavior.  
+  Range: `[0, 1]`
+
+The final risk score is a **weighted combination**:
+
+```math
+S_{final} = \alpha \cdot S_{supervised} + \beta \cdot S_{anomaly}

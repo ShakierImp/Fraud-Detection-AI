@@ -1,26 +1,36 @@
-# Python
+# Virtual environment
+fraud_env/
 venv/
+env/
+
+# Python cache
 __pycache__/
-*.pyc
-*.pkl
+*.py[cod]
+*$py.class
 
-# Node.js / React
-node_modules/
-dist/
-build/
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Environment & config
-.env
-*.log
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 
-# Data files (optional, agar large hai to ignore kar)
-*.csv
-*.xlsx
-*.tsv
-*.json
+# Jupyter Notebook
+.ipynb_checkpoints
 
-# System files
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
 Thumbs.db
-
-node_modules/

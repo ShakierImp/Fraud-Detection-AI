@@ -14,7 +14,11 @@ import io
 from src.models.model_serializer import load_model_artifacts, list_models
 from src.features.data_preprocessing import clean_df
 from src.features.feature_engineering import get_features
+import logging
 
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # -----------------------
 # Pydantic Models
@@ -66,13 +70,17 @@ async def load_model_on_startup():
     try:
         models = list_models()
         if not models:
-            raise RuntimeError("No models found.")
-        latest_model = models[-1]  # Assuming list_models returns sorted versions
-        artifacts = load_model_artifacts(latest_model)
+            logger.warning("No models found. API will run without a model.")
+            app.state.model_artifacts = None
+            return
+            
+        latest_model = models[0]  # list_models returns newest first
+        artifacts = load_model_artifacts(latest_model["path"])
         app.state.model_artifacts = artifacts
+        logger.info(f"Loaded model: {latest_model}")
     except Exception as e:
         app.state.model_artifacts = None
-        print(f"Failed to load model: {e}")
+        logger.error(f"Failed to load model: {e}")
 
 
 # -----------------------
@@ -102,14 +110,35 @@ def run_inference(df: pd.DataFrame) -> PredictResponse:
     # Preprocessing
     cleaned_df = clean_df(df)
     X_features, _ = get_features(cleaned_df, feature_list=feature_list)
+    
+    # Ensure we have the required features
+    missing_features = [f for f in feature_list if f not in X_features.columns]
+    if missing_features:
+        # Add missing features with default values
+        for feature in missing_features:
+            X_features[feature] = 0
+    
+    # Select only the features the model expects
+    X_features = X_features[feature_list]
 
-    # Predictions
-    probs = model.predict_proba(X_features)[:, 1]
+    # Predictions - handle case where model might not have predict_proba
+    if hasattr(model, 'predict_proba'):
+        probs = model.predict_proba(X_features)[:, 1]
+    else:
+        # Fallback to binary predictions converted to probabilities
+        preds = model.predict(X_features)
+        probs = preds.astype(float)
 
     predictions = []
     summary = {"High": 0, "Medium": 0, "Low": 0}
 
-    for tid, prob in zip(cleaned_df["transaction_id"], probs):
+    # Handle case where transaction_id might not exist
+    if "transaction_id" in cleaned_df.columns:
+        transaction_ids = cleaned_df["transaction_id"]
+    else:
+        transaction_ids = [f"txn_{i}" for i in range(len(cleaned_df))]
+    
+    for tid, prob in zip(transaction_ids, probs):
         risk = risk_category(prob)
         predictions.append(PredictionResult(transaction_id=tid, probability=float(prob), risk_score=risk))
         summary[risk] += 1
